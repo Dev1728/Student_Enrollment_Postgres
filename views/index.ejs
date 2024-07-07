@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserting SQL</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="/new" method="post">
+        <label for="id">ID: </label>
+        <input type="text" name="Id" id="id" required />
+
+        <label for="name">Name: </label>
+        <input type="text" name="Name" id="name" required />
+
+        <label for="age">Age: </label>
+        <input type="number" name="Age" id="age" required />
+
+        <label for="city">City: </label>
+        <input type="text" name="City" id="city" required />
+
+        <label for="course">Choose a Course name:</label>
+        <select name="Course" id="course" required>
+          <option value="Full stack development">Full stack development</option>
+          <option value="Java full stack">Java full stack</option>
+          <option value="Backend development">Backend development</option>
+          <option value="UI/UX Developer">UI/UX Developer</option>
+          <option value="Figma Developer">Figma Developer</option>
+          <option value="Frontend development">Frontend development</option>
+        </select>
+
+        <button type="submit">Enroll to Bootcamp</button>
+      </form>
+    </div>
+
+    <div class="display">
+      <h2>List of All Students</h2>
+      <ol>
+        <% if (students.length) { %>
+          <% students.forEach(student => { %>
+            <li><%= student.name %> : <%= student.course_name %></li>
+          <% }) %>
+        <% } else { %>
+          <li>No students enrolled yet</li>
+        <% } %>
+      </ol>
+    </div>
+  </body>
+</html>
